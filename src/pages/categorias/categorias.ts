@@ -30,4 +30,8 @@ export class CategoriasPage {
     this.categoriaService.findAll().subscribe(response => {this.items = response});
   }
 
+  produtos(){
+    this.navCtrl.push("ProdutosPage");
+  }
+
 }

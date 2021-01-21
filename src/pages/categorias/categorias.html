@@ -2,7 +2,7 @@
   <h3>Categorias</h3>
   
   <ion-list>
-    <button ion-item *ngFor = "let item of items">
+    <button ion-item *ngFor = "let item of items" (click)="produtos()">
       <h2>{{ item.nome }}</h2>
     </button>
   </ion-list>

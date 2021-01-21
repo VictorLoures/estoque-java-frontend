@@ -1,0 +1,23 @@
+
+<ion-content padding>
+<h3>Produtos</h3>
+<ion-list>
+  <table>
+    <tr>
+      <td id="cod">Código</td>
+      <td id="nome">Nome</td>
+      <td id="preco">Preço</td>
+      <td id="total">Total</td>
+      <td id="categoria">Categoria</td>
+    </tr>
+    <tr *ngFor = "let item of items">
+      <td id="cod">{{item.id}}</td>
+      <td id="nome">{{item.nome}}</td>
+      <td id="preco">R$ {{item.preco}}</td>
+      <td id="total">{{item.total}}</td>
+      <td id="categoria">{{item.categoria.nome}}</td>
+    </tr>
+   
+  </table>
+</ion-list>
+</ion-content>
