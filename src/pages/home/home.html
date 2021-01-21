@@ -1,18 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+  
+<ion-content pading>
+  <h3 id="h3">Sistema de Pedidos</h3>
+  <div id="ionitem">
+  <form >
+    <ion-item id="nome">
+      <ion-label stacked>Email</ion-label>
+      <ion-input  type="email" name="email" ></ion-input>
+    </ion-item>
+    <ion-item id="nome">
+      <ion-label stacked >Senha</ion-label>
+      <ion-input type="password" name="senha" ></ion-input>
+    </ion-item>
+    <button ion-button block (click)="login()" id="nome">Entrar</button>
+  </form>
+  <button ion-button block outline id="nome">Registrar</button>
+</div>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
