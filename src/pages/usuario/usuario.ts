@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UsuarioService } from '../../domain/usuario.service';
 
 /**
  * Generated class for the UsuarioPage page.
@@ -15,11 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UsuarioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public usuarioService : UsuarioService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UsuarioPage');
+    this.usuarioService.findAll().subscribe();
   }
 
 }

@@ -1,0 +1,26 @@
+<ion-content pading id="tudo">
+  <h3 id="h3">Atualizar Produto</h3>
+  <form id="nome">
+    <ion-item id="nome1">
+      <ion-label stacked>Nome</ion-label>
+      <ion-input  type="text" [(ngModel)]="prod.nome" name="nome" value="prod.nome"></ion-input>
+    </ion-item>
+    <ion-item id="nome1">
+      <ion-label stacked >Preço</ion-label>
+      <ion-input type="number" [(ngModel)]="prod.preco" name="preco" ></ion-input>
+    </ion-item>
+    <ion-item id="nome1">
+      <ion-label stacked >Total</ion-label>
+      <ion-input type="number" [(ngModel)]="prod.total" name="total" ></ion-input>
+    </ion-item>
+    <span id="cat3">Categorias</span>
+    <ion-item id="cat4">
+      <ion-list *ngFor = "let cat of cats" >
+        <span id="cat">{{cat.nome}}</span>
+        <input  id="cat1" value={{cat.id}} type="checkbox" (click)="setCategoria(cat.id)">
+      </ion-list>
+    </ion-item>
+    <button ion-button block (click)="update(prod)" id="cadastrar">Atualizar</button>
+  </form>
+</ion-content>
+

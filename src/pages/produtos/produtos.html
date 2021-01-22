@@ -4,20 +4,25 @@
 <ion-list>
   <table>
     <tr>
-      <td id="cod">Código</td>
-      <td id="nome">Nome</td>
-      <td id="preco">Preço</td>
-      <td id="total">Total</td>
-      <td id="categoria">Categoria</td>
+      <td id="cod1">Código</td>
+      <td id="nome11">Nome</td>
+      <td id="preco1">Preço</td>
+      <td id="total1">Total</td>
+      <td id="categoria1">Categoria</td>
     </tr>
     <tr *ngFor = "let item of items">
-      <td id="cod">{{item.id}}</td>
-      <td id="nome">{{item.nome}}</td>
-      <td id="preco">R$ {{item.preco}}</td>
-      <td id="total">{{item.total}}</td>
-      <td id="categoria">{{item.categoria.nome}}</td>
+      <td id="cod1">{{item.id}}</td>
+      <td id="nome11">{{item.nome}}</td>
+      <td id="preco1">R$ {{item.preco}}</td>
+      <td id="total1">{{item.total}}</td>
+      <td id="categoria1">{{item.categoria.nome}}</td>
+      <a (click)="update(item.id, item.nome, item.preco, item.total)"><td><ion-icon name="refresh-circle" id="update"></ion-icon></td></a>
+      <a (click)="deletar(item.id)" ><td><ion-icon name="trash" id="delete"></ion-icon></td></a>
     </tr>
    
   </table>
 </ion-list>
+<form></form>
+
+<button ion-button id="inserir1" (click)="inserir()">Inserir</button>
 </ion-content>
