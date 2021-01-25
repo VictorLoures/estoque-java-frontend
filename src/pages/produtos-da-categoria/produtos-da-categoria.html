@@ -1,0 +1,30 @@
+
+<ion-content padding>
+  <h3>Produtos</h3>
+  <ion-list>
+    <table>
+      <tr>
+        <td id="cod1">Código</td>
+        <td id="nome11">Nome</td>
+        <td id="preco1">Preço</td>
+        <td id="total1">Total</td>
+        <td id="categoria1">Categoria</td>
+      </tr>
+      <tr *ngFor = "let produto of produtos">
+        <td id="cod1">{{produto.id}}</td>
+        <td id="nome11">{{produto.nome}}</td>
+        <td id="preco1">R$ {{produto.preco}}</td>
+        <td id="total1">{{produto.total}}</td>
+        <td id="categoria1">{{produto.categoria.nome}}</td>
+        <a (click)="update(produto.id, produto.nome, produto.preco, produto.total)"><td><ion-icon name="refresh-circle" id="update"></ion-icon></td></a>
+        <a (click)="deletar(produto.id)" ><td><ion-icon name="trash" id="delete"></ion-icon></td></a>
+      </tr>
+     
+    </table>
+  </ion-list>
+  
+  <a (click)="home()" id="back"><ion-icon name="arrow-back" ></ion-icon></a>
+  
+  <button ion-button id="inserir1" (click)="inserir()">Inserir</button>
+  </ion-content>
+  

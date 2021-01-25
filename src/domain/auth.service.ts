@@ -6,6 +6,8 @@ import { CredenciaisDTO } from "../models/credenciaisdto";
 @Injectable()
 export class AuthService{
 
+    username : string;
+
     constructor(public http: HttpClient){
 
     }
@@ -16,6 +18,11 @@ export class AuthService{
             observe : 'response',
             responseType: 'text'
         });
+    }
+
+    public setUsername(name : string){
+        this.username = name;
+        console.log(this.username);
     }
 
 }

@@ -22,9 +22,11 @@ export class HomePage {
   login(){
     this.auth.authenticate(this.creds).subscribe(response => {
       this.navCtrl.push('DploginPage')
+      this.auth.setUsername(this.creds.nome);
     },
     error => alert("Usuário ou Senha incorreto(s)!!"))
-    
   }
+  
+  
 
 }

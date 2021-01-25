@@ -44,4 +44,8 @@ export class UpdateProdutoPage {
     this.id = id;
   }
 
+  home(){
+    this.navCtrl.push("HomePage");
+  }
+
 }

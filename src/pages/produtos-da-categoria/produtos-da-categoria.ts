@@ -1,34 +1,30 @@
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { API_CONFIG } from '../../config/api.config';
 import { ProdutosService } from '../../domain/produtos.service';
 import { ProdutosDTO } from '../../models/produtosdto';
 
 /**
- * Generated class for the ProdutosPage page.
+ * Generated class for the ProdutosDaCategoriaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
- 
 @IonicPage()
 @Component({
-  selector: 'page-produtos',
-  templateUrl: 'produtos.html',
+  selector: 'page-produtos-da-categoria',
+  templateUrl: 'produtos-da-categoria.html',
 })
-export class ProdutosPage {
+export class ProdutosDaCategoriaPage {
 
-  bucketUrl: string = API_CONFIG.bucketUrl;
-
-  items: ProdutosDTO[];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-     public produtosService : ProdutosService) {
+  produtos: ProdutosDTO[];
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public produtosService : ProdutosService) {
   }
 
   ionViewDidLoad() {
-    this.produtosService.findAll().subscribe(response => {this.items = response});
+    this.produtosService.findProds().subscribe(response => {this.produtos = response});
+    console.log(this.produtos);
   }
 
   inserir(){
@@ -38,8 +34,7 @@ export class ProdutosPage {
   deletar(id : number){
     this.produtosService.deletar(id).subscribe(Response => {
       this.ionViewDidLoad();
-    });
-    
+    });    
   }
 
   update(cod: number){
@@ -48,7 +43,7 @@ export class ProdutosPage {
   }
 
   home(){
-      this.navCtrl.push("DploginPage");
-  }
+    this.navCtrl.push("CategoriasPage");
+}
 
 }

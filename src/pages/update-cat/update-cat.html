@@ -1,0 +1,11 @@
+<ion-content padding id="pag">
+  <h3>Atualizar Categoria</h3>
+  <form id="item">
+    <ion-item id="name">
+      <ion-label stacked>Nome</ion-label>
+      <ion-input [(ngModel)]="cat.nome" type="text" name="nome" value="cat.nome"></ion-input>
+    </ion-item>
+    <button ion-button block (click)="update(cat)" id="att">Atualizar</button>
+  </form>
+  <a (click)="home()" id="vCats"><ion-icon name="arrow-back" ></ion-icon></a>
+</ion-content>

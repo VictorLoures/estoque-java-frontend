@@ -49,4 +49,8 @@ export class InsertProdutoPage {
     this.id = id;
   }
 
+  produtos(){
+    this.navCtrl.push("ProdutosPage");
+  }
+
 }

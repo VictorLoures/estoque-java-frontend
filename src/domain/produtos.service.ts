@@ -8,6 +8,7 @@ import { ProdutosDTO } from "../models/produtosdto";
 export class ProdutosService{
 
     id: number;
+    idc: number;
 
     constructor( public http: HttpClient ){
 
@@ -53,6 +54,18 @@ export class ProdutosService{
 
     getId(){
         return this.id;
+    }
+
+    setIdc(cod: number){
+        this.idc = cod;
+    }
+
+    getIdc(){
+        return this.idc;
+    }
+
+    findProds() : Observable<ProdutosDTO[]> {
+        return this.http.get<ProdutosDTO[]>(`${API_CONFIG.baseurl}/produtos/cats/${this.getIdc()}`);
     }
 
 }
