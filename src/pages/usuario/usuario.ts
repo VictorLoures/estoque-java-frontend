@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioService } from '../../domain/usuario.service';
+import { UsuarioDTO } from '../../models/usuariodto';
 
 /**
  * Generated class for the UsuarioPage page.
@@ -17,12 +18,20 @@ import { UsuarioService } from '../../domain/usuario.service';
 export class UsuarioPage {
 
 
+  items : UsuarioDTO[];
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public usuarioService : UsuarioService) {
   }
 
   ionViewDidLoad() {
-    this.usuarioService.findAll().subscribe();
+    this.usuarioService.findAll().subscribe(response => {
+      this.items = response
+    });
+  }
+
+  home(){
+    this.navCtrl.push("DploginPage");
   }
 
 }
