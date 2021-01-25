@@ -25,7 +25,7 @@ export class UpdateProdutoPage {
     id: null,
     nome : "",
     preco : 0,
-    total : 0,
+    total : 0
   };
 
   ionViewDidLoad() {    
@@ -35,8 +35,8 @@ export class UpdateProdutoPage {
   }
 
   update(prod : ProdutosDTO){
-    this.produtosService.update(prod).subscribe(Response => {
-      this.navCtrl.push("ProdutosPage");
+    this.produtosService.update(prod, this.id).subscribe(Response => {
+      this.navCtrl.push("DploginPage");
     });    
   }
 
@@ -44,8 +44,8 @@ export class UpdateProdutoPage {
     this.id = id;
   }
 
-  home(){
-    this.navCtrl.push("HomePage");
+  vinicio(){
+    this.navCtrl.push("DploginPage");
   }
 
 }

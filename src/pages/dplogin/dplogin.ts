@@ -34,4 +34,8 @@ export class DploginPage {
     this.navCtrl.push("UsuarioPage");
   }
 
+  sair(){
+    this.navCtrl.push("HomePage");
+  }
+
 }

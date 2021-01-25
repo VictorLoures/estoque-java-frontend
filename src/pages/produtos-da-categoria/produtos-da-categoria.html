@@ -16,7 +16,7 @@
         <td id="preco1">R$ {{produto.preco}}</td>
         <td id="total1">{{produto.total}}</td>
         <td id="categoria1">{{produto.categoria.nome}}</td>
-        <a (click)="update(produto.id, produto.nome, produto.preco, produto.total)"><td><ion-icon name="refresh-circle" id="update"></ion-icon></td></a>
+        <a (click)="update(produto.id, produto.nome, produto.preco, produto.total, produto.categoria.nome)"><td><ion-icon name="refresh-circle" id="update"></ion-icon></td></a>
         <a (click)="deletar(produto.id)" ><td><ion-icon name="trash" id="delete"></ion-icon></td></a>
       </tr>
      

@@ -20,7 +20,8 @@ export class UpdateCatPage {
 
   cat : CategoriaDTO = {
     id : "",
-    nome: ""
+    nome: "",
+    username : ""
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaservice : CategoriaService) {
@@ -36,6 +37,7 @@ export class UpdateCatPage {
   }
 
   update(cat : CategoriaDTO){
+    this.cat.username = cat.username;
     this.categoriaservice.update(cat).subscribe(response => {
       this.navCtrl.push("CategoriasPage");
     });

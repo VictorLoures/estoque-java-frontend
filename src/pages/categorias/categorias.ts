@@ -24,7 +24,8 @@ export class CategoriasPage {
 
   cat : CategoriaDTO = {
     id : " ",
-    nome : " "
+    nome : " ",
+    username : ""
   };
   items: CategoriaDTO[];
   

@@ -39,9 +39,9 @@ export class ProdutosService{
         
     }
 
-    update(prod : ProdutosDTO){
+    update(prod : ProdutosDTO, id : number){
         console.log(prod);
-        return this.http.put(`${API_CONFIG.baseurl}/produtos`, prod, 
+        return this.http.put(`${API_CONFIG.baseurl}/produtos/${id}`, prod, 
         {
             observe : 'response',
             responseType: 'text'
