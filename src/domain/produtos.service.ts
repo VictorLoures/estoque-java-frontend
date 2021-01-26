@@ -17,6 +17,12 @@ export class ProdutosService{
     findAll() : Observable<ProdutosDTO[]> {
         return this.http.get<ProdutosDTO[]>(`${API_CONFIG.baseurl}/produtos`);
     }
+    findONome() : Observable<ProdutosDTO[]> {
+        return this.http.get<ProdutosDTO[]>(`${API_CONFIG.baseurl}/produtos/nome`);
+    }
+    findOCod() : Observable<ProdutosDTO[]> {
+        return this.http.get<ProdutosDTO[]>(`${API_CONFIG.baseurl}/produtos/codigo`);
+    }
 
     findOne(id : number) : Observable<ProdutosDTO> {
         return this.http.get<ProdutosDTO>(`${API_CONFIG.baseurl}/produtos/${id}`);

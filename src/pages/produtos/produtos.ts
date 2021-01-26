@@ -51,4 +51,16 @@ export class ProdutosPage {
       this.navCtrl.push("DploginPage");
   }
 
+  oPCod(){
+    this.produtosService.findOCod().subscribe(response => { 
+      this.items = response;
+    });
+  }
+
+  oPNome(){
+    this.produtosService.findONome().subscribe(response => { 
+      this.items = response;
+    });
+  }
+
 }
