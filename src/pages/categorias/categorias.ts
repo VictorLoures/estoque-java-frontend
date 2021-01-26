@@ -59,5 +59,9 @@ export class CategoriasPage {
     this.navCtrl.push("UpdateCatPage");
   }
 
+  inserir(){
+    this.navCtrl.push("InsertCategoriasPage");
+  }
+
 
 }

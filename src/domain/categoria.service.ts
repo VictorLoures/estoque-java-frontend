@@ -33,6 +33,13 @@ export class CategoriaService{
         });
     }
 
+    insert(catDto : CategoriaDTO){
+        return this.http.post(`${API_CONFIG.baseurl}/categorias`, catDto,{
+            observe : 'response',
+            responseType: 'text'
+        });
+    }
+
     getId(){
         return this.id;
     }
