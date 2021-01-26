@@ -20,7 +20,7 @@
      
     </table>
 
-    <table  *ngIf="userA.perfis == 'FUNCIONARIO'">
+    <table  *ngIf="userA.perfis == 'FUNCIONARIO'" id="tabelaFunc">
       <tr >
         <td id="cod1c">Código</td>
         <td id="nome11c">Nome</td>
@@ -35,6 +35,6 @@
   
   
   
-  <button ion-button id="inserir1c" (click)="inserir()">Inserir</button>
+  <button ion-button *ngIf="userA.perfis != 'FUNCIONARIO'" id="inserir1c" (click)="inserir()">Inserir</button>
 
 </ion-content>

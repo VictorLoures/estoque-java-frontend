@@ -43,4 +43,12 @@ export class UsuarioPage {
     this.navCtrl.push("DploginPage");
   }
 
+  inserir(){
+    this.navCtrl.push("InsertUsuarioPage");
+  }
+
+  deletar(id : number){
+    this.usuarioService.delete(id).subscribe(response => { this.ionViewDidLoad()});
+  }
+
 }
