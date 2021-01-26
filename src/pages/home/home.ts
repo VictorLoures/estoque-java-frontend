@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { AuthService } from '../../domain/auth.service';
+import { UsuarioService } from '../../domain/usuario.service';
 import { CredenciaisDTO } from '../../models/credenciaisdto';
 
 @IonicPage()
@@ -15,14 +16,14 @@ export class HomePage {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public auth : AuthService) {
+  constructor(public navCtrl: NavController, public auth : AuthService, public userService : UsuarioService) {
 
   }
 
   login(){
     this.auth.authenticate(this.creds).subscribe(response => {
+      this.userService.setUsername(this.creds.nome);
       this.navCtrl.push('DploginPage')
-      this.auth.setUsername(this.creds.nome);
     },
     error => alert("Usuário ou Senha incorreto(s)!!"))
   }

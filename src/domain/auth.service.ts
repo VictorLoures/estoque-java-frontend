@@ -13,16 +13,21 @@ export class AuthService{
     }
 
     authenticate(creds : CredenciaisDTO){
+        this.setUsername(creds.nome);
         return this.http.post(`${API_CONFIG.baseurl}/login`, creds,
         {
             observe : 'response',
             responseType: 'text'
         });
+        
     }
 
     public setUsername(name : string){
         this.username = name;
-        console.log(this.username);
+    }
+
+    public getUsername(){
+        return this.username;
     }
 
     recuperarSenha(email : string){
