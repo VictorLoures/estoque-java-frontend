@@ -25,4 +25,12 @@ export class AuthService{
         console.log(this.username);
     }
 
+    recuperarSenha(email : string){
+        return this.http.get(`${API_CONFIG.baseurl}/usuario/senha/${email}`,
+        {
+            observe : 'response',
+            responseType: 'text'
+        });
+    }
+
 }

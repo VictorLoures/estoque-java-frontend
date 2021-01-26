@@ -26,6 +26,10 @@ export class HomePage {
     },
     error => alert("Usuário ou Senha incorreto(s)!!"))
   }
+
+  esqueciSenha(){
+    this.navCtrl.push("EsqueciSenhaPage")
+  }
   
   
 

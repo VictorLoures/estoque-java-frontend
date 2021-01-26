@@ -1,0 +1,11 @@
+<ion-content padding id="pag">
+  <h3>Recuperar Senha</h3>
+  <form id="item">
+    <ion-item id="name">
+      <ion-label stacked>Email</ion-label>
+      <ion-input  [(ngModel)]="email" type="email" name="nome" ></ion-input>
+    </ion-item>
+    <button ion-button block (click)="recuperar(email)" id="att">Recuperar Senha</button>
+  </form>
+  <a (click)="home()" id="vCats"><ion-icon name="arrow-back" ></ion-icon></a>
+</ion-content>
