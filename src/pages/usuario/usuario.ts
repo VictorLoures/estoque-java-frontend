@@ -51,4 +51,10 @@ export class UsuarioPage {
     this.usuarioService.delete(id).subscribe(response => { this.ionViewDidLoad()});
   }
 
+  update(id : number){
+    this.usuarioService.setId(id);
+    this.navCtrl.push("UpdateUsuarioPage");
+  }
+
+
 }

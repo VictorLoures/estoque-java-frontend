@@ -9,6 +9,7 @@ import { UsuarioSenhaDTO } from "../models/usuariodtosSneha";
 export class UsuarioService{
 
  username : string;
+ id :number
 
     constructor( public http: HttpClient ){
 
@@ -16,6 +17,10 @@ export class UsuarioService{
 
     findAll() : Observable<UsuarioDTO[]> {
         return this.http.get<UsuarioDTO[]>(`${API_CONFIG.baseurl}/usuario`);
+    }
+
+    findOne(id : number) : Observable<UsuarioDTO> {
+        return this.http.get<UsuarioDTO>(`${API_CONFIG.baseurl}/usuario/${id}`);
     }
 
     acharPeloNome(nome : string) : Observable<UsuarioDTO>{
@@ -36,12 +41,28 @@ export class UsuarioService{
         return this.username;
     }
 
+    setId(id : number){
+        this.id = id;
+    }
+
+    getId(){
+        return this.id;
+    }
+
     delete(id : number) {
         return this.http.delete(`${API_CONFIG.baseurl}/usuario/delete/${id}`);
     }
 
     insert(user : UsuarioSenhaDTO){
         return this.http.post(`${API_CONFIG.baseurl}/usuario`, user,
+        {
+            observe : 'response',
+            responseType: 'text'
+        })
+    }
+
+    update(user : UsuarioDTO){
+        return this.http.put(`${API_CONFIG.baseurl}/usuario`, user,
         {
             observe : 'response',
             responseType: 'text'
