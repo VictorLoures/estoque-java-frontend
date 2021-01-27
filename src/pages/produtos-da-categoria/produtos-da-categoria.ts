@@ -23,11 +23,13 @@ export class ProdutosDaCategoriaPage {
   }
 
   ionViewDidLoad() {
+    
     this.produtosService.findProds().subscribe(response => {this.produtos = response});
     console.log(this.produtos);
   }
 
   inserir(){
+    this.produtosService.setCond("true");
     this.navCtrl.push("InsertProdutoPage");
   }
 

@@ -59,8 +59,9 @@ export class CategoriasPage {
     this.navCtrl.push("UpdateCatPage");
   }
 
-  inserir(){
-    this.navCtrl.push("InsertCategoriasPage");
+  inserir(id : number){
+    //this.navCtrl.push("InsertCategoriasPage");
+    console.log(id);
   }
 
 

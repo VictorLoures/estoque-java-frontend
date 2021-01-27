@@ -24,7 +24,9 @@ export class InsertProdutoPage {
      public catService : CategoriaService) {
   }
 
+  cond : string;
   id : number;
+  idCategoria : number;
   cats : CategoriaDTO[];
   prod : ProdutosDTO = {
     id: null,
@@ -35,22 +37,34 @@ export class InsertProdutoPage {
   
 
   ionViewDidLoad() {
+    this.cond = this.produtosService.getCond();
+    if(this.cond == "true"){
+      this.idCategoria = this.produtosService.getIdc();
+    }   
     this.catService.findAll().subscribe(response => { this.cats = response});
     console.log('ionViewDidLoad InsertProdutoPage');
   }
 
   inserir(){
-    this.produtosService.inserir(this.id, this.prod).subscribe(response => {
-      this.navCtrl.push('ProdutosPage')
-    });
+    if(this.cond == 'true'){
+      this.produtosService.inserir(this.produtosService.getIdc(), this.prod).subscribe(response => {
+        this.navCtrl.push('ProdutosPage')
+     });
+    }else{
+      this.produtosService.inserir(this.id, this.prod).subscribe(response => {
+        this.navCtrl.push('ProdutosPage')
+     });
+    }
+    
+    
   }
 
   setCategoria(id: number){
     this.id = id;
   }
 
-  produtos(){
-    this.navCtrl.push("ProdutosPage");
+  homprodutos(){
+    this.navCtrl.push("DploginPage");
   }
 
 }

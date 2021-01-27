@@ -1,5 +1,5 @@
 <ion-content pading id="tudo">
-  <h3 id="h3">Inserir Pedido</h3>
+  <h3 id="h3">Inserir Produto</h3>
   <form id="nome">
     <ion-item id="nome1">
       <ion-label stacked>Nome</ion-label>
@@ -13,8 +13,8 @@
       <ion-label stacked >Total</ion-label>
       <ion-input type="number" [(ngModel)]="prod.total" name="total" ></ion-input>
     </ion-item>
-    <span id="cat3">Categorias</span>
-    <ion-item id="cat4">
+    <span id="cat3" *ngIf="cond != 'true'">Categorias</span>
+    <ion-item id="cat4" *ngIf="cond != 'true'">
       <ion-list *ngFor = "let cat of cats" >
         <span id="cat">{{cat.nome}}</span>
         <input  id="cat1" value={{cat.id}} type="checkbox" (click)="setCategoria(cat.id)">
@@ -23,4 +23,4 @@
     <button ion-button block (click)="inserir()" id="cadastrar">Cadastrar</button>
   </form>  
 </ion-content>
-<a (click)="produtos()" id="voltar1"><ion-icon name="arrow-back" ></ion-icon></a>
+<a (click)="homprodutos()" id="voltar1"><ion-icon name="arrow-back" ></ion-icon></a>

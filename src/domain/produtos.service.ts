@@ -9,6 +9,7 @@ export class ProdutosService{
 
     id: number;
     idc: number;
+    cond : string;
 
     constructor( public http: HttpClient ){
 
@@ -68,6 +69,14 @@ export class ProdutosService{
 
     getIdc(){
         return this.idc;
+    }
+
+    setCond(cond: string){
+        this.cond = cond;
+    }
+
+    getCond(){
+        return this.cond;
     }
 
     findProds() : Observable<ProdutosDTO[]> {

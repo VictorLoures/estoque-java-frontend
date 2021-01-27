@@ -32,6 +32,7 @@ export class ProdutosPage {
   }
 
   inserir(){
+    this.produtosService.setCond("false");
     this.navCtrl.push("InsertProdutoPage");
   }
 
