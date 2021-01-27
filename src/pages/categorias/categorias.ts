@@ -60,8 +60,7 @@ export class CategoriasPage {
   }
 
   inserir(id : number){
-    //this.navCtrl.push("InsertCategoriasPage");
-    console.log(id);
+    this.navCtrl.push("InsertCategoriasPage");
   }
 
 

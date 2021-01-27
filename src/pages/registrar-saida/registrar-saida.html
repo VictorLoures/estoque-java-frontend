@@ -1,0 +1,42 @@
+<a (click)="homprodutos()" id="voltarDaVenda"><ion-icon name="arrow-back" ></ion-icon></a>
+<ion-content pading id="tudo">
+  <h3 id="h3">Inserir Produto</h3>
+  
+  <form id="nome1DaVenda">
+    <ion-item id="nome1">
+      <ion-label stacked>Código</ion-label>
+      <ion-input  type="number"  [(ngModel)]="item.id" name="id" (ionBlur)="preencheCod(item.id)"></ion-input>
+    </ion-item>
+    <ion-item id="nome1DaVenda">
+      <ion-label stacked >Nome</ion-label>
+      <ion-input type="text"  [(ngModel)]="item.nome" name="nome" (ionBlur)="preenchenome(item.nome)"></ion-input>
+    </ion-item>
+    <ion-item id="nome1DaVenda">
+      <ion-label stacked >Quantidade</ion-label>
+      <ion-input type="number" name="qte" [(ngModel)]="qte" (ionBlur)="calculaLucro(qte, item.preco)"></ion-input>
+    </ion-item>
+    <ion-item id="nome1DaVenda">
+      <ion-label stacked >Preço</ion-label>
+      <ion-input type="number" [(ngModel)]="item.preco" name="preco" ></ion-input>
+    </ion-item>
+    <ion-item id="nome1DaVenda">
+      <ion-label stacked >Lucro</ion-label>
+      <ion-input type="number" [(ngModel)]="lucro" name="lucro" (ionBlur)="calculaqte(lucro, item.preco)"></ion-input>
+    </ion-item>
+    <button ion-button block (click)="update(item)" id="cadastrar">Vender</button>
+  </form>  
+
+  <div id="tudoDaVenda">
+      <table *ngFor = "let cat of cats">
+        <tr>
+          <td><h4>{{cat.nome}}</h4></td>
+        </tr>
+        <tr *ngFor = "let prod of prods">
+         <td *ngIf="prod.categoria.nome == cat.nome" ><a id="produto" (click)="preencheBusca(prod, prod.categoria.id, prod.total)">{{prod.nome}}</a></td>
+       </tr>
+      </table> 
+  </div>
+  
+  
+</ion-content>
+

@@ -29,6 +29,10 @@ export class ProdutosService{
         return this.http.get<ProdutosDTO>(`${API_CONFIG.baseurl}/produtos/${id}`);
     }
 
+    findByNome(nome : string) : Observable<ProdutosDTO> {
+        return this.http.get<ProdutosDTO>(`${API_CONFIG.baseurl}/produtos/nome/${nome}`);
+    }
+
     inserir(id : number, prod : ProdutosDTO){
         return this.http.post(`${API_CONFIG.baseurl}/produtos/${id}`, prod,
         {

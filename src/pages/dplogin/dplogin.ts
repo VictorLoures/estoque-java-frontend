@@ -38,4 +38,12 @@ export class DploginPage {
     this.navCtrl.push("HomePage");
   }
 
+  registrarEntrada(){
+    this.navCtrl.push("RegistrarEntradaPage");
+  }
+
+  registrarSaida(){
+    this.navCtrl.push("RegistrarSaidaPage");
+  }
+
 }
