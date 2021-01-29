@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClienteService } from '../../domain/cliente.service';
 import { ClienteDTO } from '../../models/clienteDto';
+import { ProdutosDTO } from '../../models/produtosdto';
 
 /**
  * Generated class for the ClientesPage page.
@@ -39,4 +40,7 @@ items : ClienteDTO[];
     this.navCtrl.push("InsertClientesPage");
   }
 
+  home(){
+    this.navCtrl.push("DploginPage");
+  }
 }

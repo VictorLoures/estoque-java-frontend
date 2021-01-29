@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoriaService } from '../../domain/categoria.service';
+import { ClienteService } from '../../domain/cliente.service';
 import { ProdutosService } from '../../domain/produtos.service';
 import { CategoriaDTO } from '../../models/CategoriaDTO';
 import { ProdutosDTO } from '../../models/produtosdto';
+import { ProdutosBaixaDTO } from '../../models/produtosdtoBaixa';
 
 /**
  * Generated class for the RegistrarSaidaPage page.
@@ -19,27 +21,42 @@ import { ProdutosDTO } from '../../models/produtosdto';
 })
 export class RegistrarSaidaPage {
 
+  email : string;
+  cond : string;
   total : number;
   idC : number;
   qte : number;
   lucro: number;
+itemBaixa : ProdutosBaixaDTO = {
+  id : null,
+  nome : "",
+  preco : null,
+  total : null,
+  qte : null
+};
+
 item : ProdutosDTO = {
   id : null,
   nome : "",
   preco : null,
-  total : null
+  total : null,
+  precoS : ""
 };
 
 cats : CategoriaDTO [];
 
 prods : ProdutosDTO[];
+prodsAc : ProdutosBaixaDTO[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
      public produtosService : ProdutosService,
-     public catregroiaService :CategoriaService) {
+     public catregroiaService :CategoriaService,
+     public userService : ClienteService) {
   }
 
   ionViewDidLoad() {
+    this.cond = "false";
+    this.produtosService.removeProds().subscribe();
     this.qte = 0;
     this.catregroiaService.findAll().subscribe(response =>{this.cats = response})
     this.produtosService.findAll().subscribe(response => {this.prods = response});
@@ -83,10 +100,30 @@ homprodutos(){
   this.navCtrl.push("DploginPage");
 }
 
-update(prod : ProdutosDTO){  
-  prod.total = this.total - this.qte;
-  this.produtosService.update(prod, this.idC).subscribe(response => {this.navCtrl.push("DploginPage")});
+update(){   
+  this.produtosService.getProds().subscribe(response => {this.prodsAc = response});
+  this.produtosService.updateList(this.prodsAc).subscribe(response => {
+    this.userService.sendEmail(this.prodsAc, this.email, this.qte).subscribe(response => {this.navCtrl.push("DploginPage")})
+  });
 }
 
+produtosAc(produto : ProdutosBaixaDTO){
+  produto.total = this.total - this.qte;
+  produto.total = this.total;
+  produto.qte = this.qte;
+  this.produtosService.guarda(produto).subscribe(response => {
+    this.produtosService.getProds().subscribe(response => {
+      this.prodsAc = response
+    });
+  });
+}
 
+setNota(cond : string){
+ this.cond = cond;
+}
+
+setEmail(email : string){
+  this.email = email;
+  console.log(this.email);
+ }
 }

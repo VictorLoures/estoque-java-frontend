@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API_CONFIG } from "../config/api.config";
 import { ProdutosDTO } from "../models/produtosdto";
+import { ProdutosBaixaDTO } from "../models/produtosdtoBaixa";
 
 @Injectable()
 export class ProdutosService{
@@ -41,6 +42,22 @@ export class ProdutosService{
         })
     }
 
+    guarda(prod : ProdutosBaixaDTO){
+        return this.http.post(`${API_CONFIG.baseurl}/produtos/guarda`, prod,
+        {
+            observe : 'response',
+            responseType: 'text'
+        })
+    }
+
+    getProds() : Observable<ProdutosBaixaDTO[]> {
+        return this.http.get<ProdutosBaixaDTO[]>(`${API_CONFIG.baseurl}/produtos/getProds`)
+    }
+
+    removeProds(){
+        return this.http.get(`${API_CONFIG.baseurl}/produtos/removeProds`);
+    }
+
     deletar(id : number){
        return this.http.delete(`${API_CONFIG.baseurl}/produtos/delete/${id}`,
         {
@@ -50,9 +67,16 @@ export class ProdutosService{
         
     }
 
-    update(prod : ProdutosDTO, id : number){
-        console.log(prod);
+    update(prod : ProdutosBaixaDTO[], id : number){
         return this.http.put(`${API_CONFIG.baseurl}/produtos/${id}`, prod, 
+        {
+            observe : 'response',
+            responseType: 'text'
+        })
+    }
+
+    updateList(prod : ProdutosBaixaDTO[]){
+        return this.http.put(`${API_CONFIG.baseurl}/produtos/list`, prod, 
         {
             observe : 'response',
             responseType: 'text'

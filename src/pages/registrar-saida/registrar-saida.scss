@@ -5,7 +5,7 @@
 #tudoDaVenda{
     position: relative;
     left: 460px;
-    top: -345px;
+    top: -385px;
     overflow: inherit; 
     height: 300px;
     width: 300px;
@@ -22,4 +22,41 @@
 
 #produto{
     color: black;
+}
+
+#cadastrarNovoProduto{
+    text-align: center;
+    width:200px;
+    top: 150px;
+    left: 300px;
+}
+#tudoDosProdutos{
+    position: relative;
+    left: 766px;
+    top: -685px;
+    overflow: hide; 
+    height: 300px;
+    width: 250px;
+    
+}
+
+#emailCliente{
+    position: relative;
+    left: 345px;
+    top: -662px;
+}
+
+#emailClientei{
+    position: relative;
+    width: 400px;
+    left: -150px;
+}
+
+#h5{
+    position: relative;
+    left: -25px;
+}
+#nao{
+    position: relative;
+    left: 3px;
 }

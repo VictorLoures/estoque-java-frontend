@@ -14,7 +14,7 @@
       <tr *ngFor = "let produto of produtos">
         <td id="cod1">{{produto.id}}</td>
         <td id="nome11">{{produto.nome}}</td>
-        <td id="preco1">R$ {{produto.preco}}</td>
+        <td id="preco1">R$ {{produto.precoS}}</td>
         <td id="total1">{{produto.total}}</td>
         <td id="categoria1">{{produto.categoria.nome}}</td>
         <a (click)="update(produto.id, produto.nome, produto.preco, produto.total, produto.categoria.nome)"><td><ion-icon name="refresh-circle" id="update"></ion-icon></td></a>

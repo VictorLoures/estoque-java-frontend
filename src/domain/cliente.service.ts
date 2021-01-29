@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API_CONFIG } from "../config/api.config";
 import { ClienteDTO } from "../models/clienteDto";
+import { ProdutosBaixaDTO } from "../models/produtosdtoBaixa";
 
 @Injectable()
 export class ClienteService{
@@ -35,6 +36,13 @@ export class ClienteService{
 
     insert(catDto : ClienteDTO){
         return this.http.post(`${API_CONFIG.baseurl}/clientes`, catDto,{
+            observe : 'response',
+            responseType: 'text'
+        });
+    }
+
+    sendEmail(prods : ProdutosBaixaDTO[], email : string, qte : number ){
+        return this.http.post(`${API_CONFIG.baseurl}/clientes/nota/${email}/${qte}`, prods,{
             observe : 'response',
             responseType: 'text'
         });

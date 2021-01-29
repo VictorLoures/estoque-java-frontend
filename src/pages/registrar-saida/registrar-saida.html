@@ -1,6 +1,6 @@
 <a (click)="homprodutos()" id="voltarDaVenda"><ion-icon name="arrow-back" ></ion-icon></a>
 <ion-content pading id="tudo">
-  <h3 id="h3">Inserir Produto</h3>
+  <h3 id="h3">Registrar Venda</h3>
   
   <form id="nome1DaVenda">
     <ion-item id="nome1">
@@ -23,7 +23,8 @@
       <ion-label stacked >Lucro</ion-label>
       <ion-input type="number" [(ngModel)]="lucro" name="lucro" (ionBlur)="calculaqte(lucro, item.preco)"></ion-input>
     </ion-item>
-    <button ion-button block (click)="update(item)" id="cadastrar">Vender</button>
+    <button ion-button block (click)="produtosAc(item)" id="cadastrarNovoProduto">Registrar outro Produto</button>
+    <button ion-button block (click)="update(item)" id="cadastrarNovoProduto">Vender</button>
   </form>  
 
   <div id="tudoDaVenda">
@@ -36,7 +37,25 @@
        </tr>
       </table> 
   </div>
-  
-  
+
+  <div id="tudoDosProdutos">
+    <table>
+      <tr>
+        <td><h4>Produtos para a venda</h4></td>
+      </tr>
+      <tr *ngFor = "let item of prodsAc">
+        <td><p>{{item.nome}}</p></td>
+      </tr>
+    </table> 
+</div>
+<div id="emailCliente">
+<h5 id="h5">Incluir Nota Fiscal</h5>
+<input type="radio" name="cliente" (click)="setNota('true')"><span>Sim</span>
+<input type="radio" name="cliente" (click)="setNota('false')" id="nao"><span id="nao" >Não</span>
+<ion-item  *ngIf="cond == 'true'" id="emailClientei">
+  <ion-label stacked >Email</ion-label>
+  <ion-input type="email" [(ngModel)]="email" (ionBlur)="setEmail(email)"></ion-input>
+</ion-item>  
+</div>
 </ion-content>
 

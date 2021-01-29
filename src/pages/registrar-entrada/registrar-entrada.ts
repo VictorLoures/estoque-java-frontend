@@ -4,6 +4,7 @@ import { CategoriaService } from '../../domain/categoria.service';
 import { ProdutosService } from '../../domain/produtos.service';
 import { CategoriaDTO } from '../../models/CategoriaDTO';
 import { ProdutosDTO } from '../../models/produtosdto';
+import { ProdutosBaixaDTO } from '../../models/produtosdtoBaixa';
 
 /**
  * Generated class for the RegistrarSaidaPage page.
@@ -32,7 +33,7 @@ item : ProdutosDTO = {
 
 cats : CategoriaDTO [];
 
-prods : ProdutosDTO[];
+prods : ProdutosBaixaDTO[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
      public produtosService : ProdutosService,
@@ -78,8 +79,7 @@ homprodutos(){
   this.navCtrl.push("DploginPage");
 }
 
-updateEntrada(prod : ProdutosDTO){  
-  
+updateEntrada(prod : ProdutosBaixaDTO){  
   prod.total =  this.total + this.qteEntrada;  
   this.produtosService.update(prod, this.idC).subscribe(response => {this.navCtrl.push("DploginPage")});
 }
