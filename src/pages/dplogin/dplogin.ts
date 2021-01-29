@@ -46,4 +46,8 @@ export class DploginPage {
     this.navCtrl.push("RegistrarSaidaPage");
   }
 
+  clientes(){
+    this.navCtrl.push("ClientesPage");
+  }
+
 }

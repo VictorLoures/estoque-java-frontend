@@ -1,0 +1,19 @@
+<ion-content pading id="tudo">
+  <h3 id="h3">Atualizar Cliente</h3>
+  <form id="nome">
+    <ion-item id="nome1">
+      <ion-label stacked>Nome</ion-label>
+      <ion-input  type="text" [(ngModel)]="items.nome" name="nome" value="item.nome"></ion-input>
+    </ion-item>
+    <ion-item id="nome1">
+      <ion-label stacked >Email</ion-label>
+      <ion-input type="email" [(ngModel)]="items.email" name="email" ></ion-input>
+    </ion-item>
+    <ion-item id="nome1">
+      <ion-label stacked >Número</ion-label>
+      <ion-input type="text" [(ngModel)]="items.numero" name="numero" ></ion-input>
+    </ion-item>
+    <button ion-button block (click)="update(items)" id="cadastrar">Atualizar</button>
+  </form>
+</ion-content>
+<a (click)="vinicio()" id="vUpdate"><ion-icon name="arrow-back" ></ion-icon></a>

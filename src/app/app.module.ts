@@ -11,6 +11,7 @@ import { CategoriaService } from '../domain/categoria.service';
 import { ProdutosService } from '../domain/produtos.service';
 import { AuthService } from '../domain/auth.service';
 import { UsuarioService } from '../domain/usuario.service';
+import { ClienteService } from '../domain/cliente.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UsuarioService } from '../domain/usuario.service';
     CategoriaService,
     ProdutosService,
     AuthService,
-    UsuarioService
+    UsuarioService,
+    ClienteService
   ]
 })
 export class AppModule {}

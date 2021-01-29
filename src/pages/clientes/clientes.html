@@ -1,0 +1,29 @@
+
+<ion-content padding>
+  <h3>Produtos</h3>
+  <a (click)="home()" id="vPrinc"><ion-icon name="arrow-back" ></ion-icon></a>
+  <ion-list>
+    <table>
+      <tr>
+        <td  id="cod1c">Código</td>
+        <td id="nome11c">Nome</td>
+        <td id="preco1c">Email</td>
+        <td id="total1c">Número</td>
+      </tr>
+      <tr *ngFor = "let item of items">
+        <td id="cod1c">{{item.id}}</td>
+        <td id="nome11c">{{item.nome}}</td>
+        <td id="preco1c">{{item.email}}</td>
+        <td id="total1c">{{item.numero}}</td>
+        <a (click)="update(item.id)"><td><ion-icon name="refresh-circle" id="updatec"></ion-icon></td></a>
+        <a (click)="deletar(item.id)" ><td><ion-icon name="trash" id="deletec"></ion-icon></td></a>
+      </tr>
+     
+    </table>
+  </ion-list>
+  
+  
+  
+  <button ion-button id="inserir1c" (click)="cadastrar()">Inserir</button>
+  </ion-content>
+  
