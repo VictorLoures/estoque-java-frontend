@@ -4,6 +4,6 @@ export interface ProdutosDTO{
     id: number;
     nome : string;
     preco : number;
-    precoS : string;
     total : number;
+    precoS : string;
 }

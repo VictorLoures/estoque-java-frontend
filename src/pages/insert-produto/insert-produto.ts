@@ -33,6 +33,7 @@ export class InsertProdutoPage {
     nome : "",
     preco : 0,
     total : 0,
+    precoS : ""
   };
   
 

@@ -4,4 +4,5 @@ export interface ProdutosBaixaDTO{
     preco : number;
     total : number;
     qte : number;
+    precoS: string;
 }

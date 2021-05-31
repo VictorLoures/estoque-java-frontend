@@ -24,11 +24,12 @@ export class RegistrarEntradaPage {
   idC : number;
   qteEntrada : number;
   lucro: number;
-item : ProdutosDTO = {
+item : ProdutosBaixaDTO = {
   id : null,
   nome : "",
   preco : null,
-  total : 0
+  total : 0,
+  precoS : ""
 };
 
 cats : CategoriaDTO [];
